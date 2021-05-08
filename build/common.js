@@ -76,7 +76,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HtmlWebpackPlugin({
-      title: 'ReScript-React TailwindCSS Template',
+      title: 'Unicode To Zawgyi',
       favicon: path.resolve(__dirname, '..', './public/brand/favicon.ico'),
       template: path.resolve(__dirname, '..', './src/index.html'),
       hash: true,

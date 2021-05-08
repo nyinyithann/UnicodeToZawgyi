@@ -1,6 +1,7 @@
 /* purgecss start ignore */
 
 .theme-red {
+	--color-primary-transparent: theme('colors.transparent');
 	--color-primary-100: theme('colors.red.100');
 	--color-primary-200: theme('colors.red.200');
 	--color-primary-300: theme('colors.red.300');
@@ -59,4 +60,5 @@
 	--color-primary-800: theme('colors.green.800');
 	--color-primary-900: theme('colors.green.900');
 }
+
 /* purgecss end ignore */

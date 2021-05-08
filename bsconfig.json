@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/rescript-lang/rescript-compiler/master/docs/docson/build-schema.json",
-  "name": "rescript-react-webpack-tailwind-template",
+  "name": "unicode-to-zawgyi",
   "reason": {
     "react-jsx": 3
   },

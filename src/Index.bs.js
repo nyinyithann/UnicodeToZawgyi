@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import * as ReactDom from "react-dom";
-import * as App$RescriptReactWebpackTailwindTemplate from "./components/App.bs.js";
+import * as App$UnicodeToZawgyi from "./components/App.bs.js";
 
 import '../style/main.css'
 ;
@@ -11,7 +11,7 @@ var root = document.querySelector("#react");
 
 if (!(root == null)) {
   var prim0 = React.createElement(React.StrictMode, {
-        children: React.createElement(App$RescriptReactWebpackTailwindTemplate.make, {})
+        children: React.createElement(App$UnicodeToZawgyi.make, {})
       });
   ReactDom.render(prim0, root);
 }
