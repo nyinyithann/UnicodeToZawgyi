@@ -16,13 +16,27 @@ function useState(prim) {
 function App$TextArea(Props) {
   var fontFamily = Props.fontFamily;
   var value = Props.value;
+  var height = Props.height;
+  var show = Props.show;
+  var onFocusOpt = Props.onFocus;
   var onChange = Props.onChange;
+  var onFocus = onFocusOpt !== undefined ? onFocusOpt : (function (param) {
+        
+      });
+  var display = show !== undefined && show ? "block" : "none";
+  var style = height !== undefined ? ({
+        display: display,
+        fontFamily: fontFamily,
+        height: height
+      }) : ({
+        display: display,
+        fontFamily: fontFamily
+      });
   return React.createElement("textarea", {
-              className: "p-4  rounded-md bg-primary_100 focus:outline-none  flex-1 shadow  subpixel-antialiased \n      leading-8 hover:shadow-md hover:bg-blend-lighten ring-1 focus:ring-primary_100 resize-none",
-              style: {
-                fontFamily: fontFamily
-              },
+              className: "text-area",
+              style: style,
               value: value,
+              onFocus: onFocus,
               onChange: onChange
             });
 }
@@ -31,40 +45,134 @@ var TextArea = {
   make: App$TextArea
 };
 
+var unicodeFontName = "Noto Sans Myanmar";
+
+var zawgyiFontName = "Zawgyi-One";
+
+var unicodeSampleText = "သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။";
+
+var zawgyiSampleText = "သီဟိုဠ္မွ ဉာဏ္ႀကီးရွင္သည္ အာယုဝၯနေဆးၫႊန္းစာကို ဇလြန္ေဈးေဘး ဗာဒံပင္ထက္ အဓိ႒ာန္လ်က္ ဂဃနဏဖတ္ခဲ့သည္။";
+
+var mobileHeight = "calc(100vh - 12em)";
+
 function App(Props) {
   var match = React.useState(function () {
-        return "theme-gray";
+        return "theme-green";
       });
   var match$1 = React.useState(function () {
-        return "သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။";
+        return unicodeSampleText;
       });
   var setUnicodeText = match$1[1];
+  var unicodeText = match$1[0];
   var match$2 = React.useState(function () {
-        return "သီဟိုဠ္မွ ဉာဏ္ႀကီးရွင္သည္ အာယုဝၯနေဆးၫႊန္းစာကို ဇလြန္ေဈးေဘး ဗာဒံပင္ထက္ အဓိ႒ာန္လ်က္ ဂဃနဏဖတ္ခဲ့သည္။";
+        return zawgyiSampleText;
       });
   var setZawgyiText = match$2[1];
+  var zawgyiText = match$2[0];
+  var match$3 = React.useState(function () {
+        return "Unicode";
+      });
+  var setSelectedTab = match$3[1];
+  var selectedTab = match$3[0];
+  var match$4 = React.useState(function () {
+        return "Unicode";
+      });
+  var setFocusedLgTextArea = match$4[1];
+  var focusedLgTextArea = match$4[0];
   return React.createElement("div", {
               className: match[0]
             }, React.createElement("div", {
-                  className: "flex flex-row space-x-5 p-10 pt-20 bg-primary_700 h-screen justify-between"
-                }, React.createElement(App$TextArea, {
-                      fontFamily: "Noto Sans Myanmar",
-                      value: match$1[0],
-                      onChange: (function (e) {
-                          return Curry._1(setUnicodeText, (function (param) {
-                                        return e.target.value;
-                                      }));
-                        })
-                    }), React.createElement(App$TextArea, {
-                      fontFamily: "Zawgyi-One",
-                      value: match$2[0],
-                      onChange: (function (e) {
-                          return Curry._1(setZawgyiText, (function (param) {
-                                        return e.target.value;
-                                      }));
-                        })
-                    })));
+                  className: "hidden 2xl:flex flex-row space-x-5 p-10 pt-12 bg-primary_700 h-screen justify-between"
+                }, React.createElement("div", {
+                      className: "flex flex-col flex-1 space-y-4"
+                    }, React.createElement("span", {
+                          className: (
+                              focusedLgTextArea === "Unicode" ? "border-primary_200 text-primary_200" : "border-primary_500 text-primary_500"
+                            ).concat(" font-bold border-b-2 pb-1  inline self-start px-2")
+                        }, "Unicode"), React.createElement(App$TextArea, {
+                          fontFamily: unicodeFontName,
+                          value: unicodeText,
+                          show: true,
+                          onFocus: (function (e) {
+                              return Curry._1(setFocusedLgTextArea, (function (param) {
+                                            return "Unicode";
+                                          }));
+                            }),
+                          onChange: (function (e) {
+                              return Curry._1(setUnicodeText, (function (param) {
+                                            return e.target.value;
+                                          }));
+                            })
+                        })), React.createElement("div", {
+                      className: "flex flex-col flex-1 space-y-4"
+                    }, React.createElement("span", {
+                          className: (
+                              focusedLgTextArea === "Zawgyi" ? "border-primary_200 text-primary_200" : "border-primary_500 text-primary_500"
+                            ).concat(" font-bold border-b-2 pb-1  inline self-start px-2")
+                        }, "Zawgyi"), React.createElement(App$TextArea, {
+                          fontFamily: zawgyiFontName,
+                          value: zawgyiText,
+                          show: true,
+                          onFocus: (function (e) {
+                              return Curry._1(setFocusedLgTextArea, (function (param) {
+                                            return "Zawgyi";
+                                          }));
+                            }),
+                          onChange: (function (e) {
+                              return Curry._1(setZawgyiText, (function (param) {
+                                            return e.target.value;
+                                          }));
+                            })
+                        }))), React.createElement("div", {
+                  className: "2xl:hidden flex flex-col p-10 pt-20 bg-primary_700 h-screen "
+                }, React.createElement("div", {
+                      className: "space-x-10 pb-2"
+                    }, React.createElement("a", {
+                          className: (
+                              selectedTab === "Unicode" ? "border-primary_200 text-primary_200" : "border-transparent text-primary_500 hover:text-primary_400 hover:border-primary_500"
+                            ).concat(" whitespace-nowrap py-2 px-1 border-b-2 font-bold"),
+                          href: "#",
+                          onClick: (function (param) {
+                              return Curry._1(setSelectedTab, (function (param) {
+                                            return "Unicode";
+                                          }));
+                            })
+                        }, "Unicode"), React.createElement("a", {
+                          className: (
+                              selectedTab === "Zawgyi" ? "border-primary_200 text-primary_200" : "border-transparent text-primary_500 hover:text-primary_400 hover:border-primary_500"
+                            ).concat(" whitespace-nowrap py-2 px-1 border-b-2 font-bold"),
+                          href: "#",
+                          onClick: (function (param) {
+                              return Curry._1(setSelectedTab, (function (param) {
+                                            return "Zawgyi";
+                                          }));
+                            })
+                        }, "Zawgyi")), React.createElement("div", {
+                      className: "pt-4"
+                    }, React.createElement(App$TextArea, {
+                          fontFamily: unicodeFontName,
+                          value: unicodeText,
+                          height: mobileHeight,
+                          show: selectedTab === "Unicode",
+                          onChange: (function (e) {
+                              return Curry._1(setUnicodeText, (function (param) {
+                                            return e.target.value;
+                                          }));
+                            })
+                        }), React.createElement(App$TextArea, {
+                          fontFamily: zawgyiFontName,
+                          value: zawgyiText,
+                          height: mobileHeight,
+                          show: selectedTab === "Zawgyi",
+                          onChange: (function (e) {
+                              return Curry._1(setZawgyiText, (function (param) {
+                                            return e.target.value;
+                                          }));
+                            })
+                        }))));
 }
+
+var initialSelectedTab = "Unicode";
 
 var make = App;
 
@@ -72,6 +180,12 @@ export {
   string ,
   useState ,
   TextArea ,
+  unicodeFontName ,
+  zawgyiFontName ,
+  unicodeSampleText ,
+  zawgyiSampleText ,
+  mobileHeight ,
+  initialSelectedTab ,
   make ,
   
 }

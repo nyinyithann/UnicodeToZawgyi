@@ -58,6 +58,7 @@
   },
   "dependencies": {
     "@rescript/react": "^0.10.2",
+    "@tailwindcss/forms": "^0.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }
