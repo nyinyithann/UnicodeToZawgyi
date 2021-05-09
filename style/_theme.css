@@ -65,4 +65,42 @@
 	--color-primary-900: theme('colors.green.900');
 }
 
+.theme-indigo {
+	--color-primary-transparent: theme('colors.transparent');
+	--color-primary-100: theme('colors.indigo.100');
+	--color-primary-200: theme('colors.indigo.200');
+	--color-primary-300: theme('colors.indigo.300');
+	--color-primary-400: theme('colors.indigo.400');
+	--color-primary-500: theme('colors.indigo.500');
+	--color-primary-600: theme('colors.indigo.600');
+	--color-primary-700: theme('colors.indigo.700');
+	--color-primary-800: theme('colors.indigo.800');
+	--color-primary-900: theme('colors.indigo.900');
+}
+
+.theme-purple {
+	--color-primary-transparent: theme('colors.transparent');
+	--color-primary-100: theme('colors.purple.100');
+	--color-primary-200: theme('colors.purple.200');
+	--color-primary-300: theme('colors.purple.300');
+	--color-primary-400: theme('colors.purple.400');
+	--color-primary-500: theme('colors.purple.500');
+	--color-primary-600: theme('colors.purple.600');
+	--color-primary-700: theme('colors.purple.700');
+	--color-primary-800: theme('colors.purple.800');
+	--color-primary-900: theme('colors.purple.900');
+}
+
+.theme-pink {
+	--color-primary-transparent: theme('colors.transparent');
+	--color-primary-100: theme('colors.pink.100');
+	--color-primary-200: theme('colors.pink.200');
+	--color-primary-300: theme('colors.pink.300');
+	--color-primary-400: theme('colors.pink.400');
+	--color-primary-500: theme('colors.pink.500');
+	--color-primary-600: theme('colors.pink.600');
+	--color-primary-700: theme('colors.pink.700');
+	--color-primary-800: theme('colors.pink.800');
+	--color-primary-900: theme('colors.pink.900');
+}
 /* purgecss end ignore */

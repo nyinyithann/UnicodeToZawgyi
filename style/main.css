@@ -3,13 +3,20 @@
 @tailwind utilities;
 
 @import './_theme.css';
-@import "./_fonts.css";
+
+body {
+	min-height: 100vh;
+	min-height: -webkit-fill-available;
+}
+
+html {
+	height: -webkit-fill-available;
+}
 
 @layer components {
 	.text-area {
-		@apply p-4 bg-primary_100
-			flex-1 subpixel-antialiased
-			leading-8 rounded resize-none w-full tracking-wide outline-none
-			focus:ring-0 focus:ring-primary_100  focus:outline-none ;
+		@apply p-4 bg-primary_100 flex-1
+			leading-7 rounded resize-none w-full outline-none
+			focus:ring-0 focus:ring-primary_100 focus:outline-none ;
 	}
 }
