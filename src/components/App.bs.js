@@ -2,6 +2,8 @@
 
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
+import * as React$1 from "@headlessui/react";
+import * as Icons$UnicodeToZawgyi from "./Icons.bs.js";
 import * as Rabbit$UnicodeToZawgyi from "../Rabbit.bs.js";
 
 function string(prim) {
@@ -22,16 +24,8 @@ function App$TextArea(Props) {
   var height = Props.height;
   var show = Props.show;
   var onFocusOpt = Props.onFocus;
-  var onKeyUpOpt = Props.onKeyUp;
-  var onKeyDownOpt = Props.onKeyDown;
   var onChange = Props.onChange;
   var onFocus = onFocusOpt !== undefined ? onFocusOpt : (function (param) {
-        
-      });
-  var onKeyUp = onKeyUpOpt !== undefined ? onKeyUpOpt : (function (param) {
-        
-      });
-  var onKeyDown = onKeyDownOpt !== undefined ? onKeyDownOpt : (function (param) {
         
       });
   var display = show !== undefined && show ? "block" : "none";
@@ -47,8 +41,6 @@ function App$TextArea(Props) {
               className: "text-area",
               style: style,
               value: value,
-              onKeyDown: onKeyDown,
-              onKeyUp: onKeyUp,
               onFocus: onFocus,
               onChange: onChange
             });
@@ -62,7 +54,7 @@ var unicodeFontName = "\"Noto Sans Myanmar\",\"Pyidaungsu\"";
 
 var zawgyiFontName = "Noto Sans Zawgyi";
 
-var mobileHeight = "calc(100vh - 8.5em)";
+var mobileHeight = "calc(100vh - 7.2em)";
 
 function getLgLabelaClass(selected) {
   return (
@@ -121,7 +113,7 @@ function App(Props) {
   return React.createElement("div", {
               className: "" + match[0] + " h-screen"
             }, React.createElement("div", {
-                  className: "hidden 2xl:flex flex-row space-x-5 p-10 pt-12 bg-primary_700 justify-between",
+                  className: "hidden 2xl:flex flex-row space-x-5 p-6  bg-primary_700 justify-between",
                   id: "lg-screen",
                   style: {
                     height: "calc(100vh - 1.5em)"
@@ -155,10 +147,10 @@ function App(Props) {
                             }),
                           onChange: handleZawgyiTextChange
                         }))), React.createElement("div", {
-                  className: "2xl:hidden flex flex-col p-4 pt-12 bg-primary_700",
+                  className: "2xl:hidden flex flex-col p-4 bg-primary_700",
                   id: "non-lg-screen"
                 }, React.createElement("div", {
-                      className: "space-x-10 pb-2"
+                      className: "flex flex-row space-x-4"
                     }, React.createElement("a", {
                           className: getTabLabelClass(selectedTab === "Unicode"),
                           href: "#",
@@ -175,7 +167,67 @@ function App(Props) {
                                             return "Zawgyi";
                                           }));
                             })
-                        }, "Zawgyi")), React.createElement("div", {
+                        }, "Zawgyi"), React.createElement("div", {
+                          className: "flex flex-row space-x-2 flex-1 justify-end"
+                        }, React.createElement(Icons$UnicodeToZawgyi.Trash.make, {
+                              className: "mobile-icon",
+                              onClick: (function (param) {
+                                  console.log("test");
+                                  
+                                })
+                            }), React.createElement(React$1.Menu, {
+                              as_: "div",
+                              children: (function (param) {
+                                  return React.createElement(React.Fragment, undefined, React.createElement(React$1.Menu.Button, {
+                                                  children: React.createElement(Icons$UnicodeToZawgyi.Copy.make, {
+                                                        onClick: (function (e) {
+                                                            e.preventDefault();
+                                                            console.log("test");
+                                                            
+                                                          })
+                                                      }),
+                                                  className: "mobile-icon"
+                                                }), React.createElement(React$1.Menu.Items, {
+                                                  as_: "div",
+                                                  children: null,
+                                                  className: "flex flex-col origin-top-right absolute \n                  right-11 top-12 mt-4 w-40 p-1 bg-primary_600  \n                  rounded divide-y divide-primary_200 focus:outline-none",
+                                                  static: param.open
+                                                }, React.createElement(React$1.Menu.Item, {
+                                                      children: (function (param) {
+                                                          return React.createElement("a", {
+                                                                      className: "p-1 bg-primary_transparent text-primary_100 pl-5",
+                                                                      href: "",
+                                                                      onClick: (function (e) {
+                                                                          e.preventDefault();
+                                                                          
+                                                                        })
+                                                                    }, "Copy Unicode");
+                                                        })
+                                                    }), React.createElement(React$1.Menu.Item, {
+                                                      children: (function (param) {
+                                                          return React.createElement("a", {
+                                                                      className: "p-1 bg-primary_transparent text-primary_100 pl-5",
+                                                                      href: ""
+                                                                    }, "Copy Zawgyi");
+                                                        })
+                                                    }), React.createElement(React$1.Menu.Item, {
+                                                      children: (function (param) {
+                                                          return React.createElement("a", {
+                                                                      className: "p-1 bg-primary_transparent text-primary_100 pl-5",
+                                                                      href: ""
+                                                                    }, "Copy Both");
+                                                        })
+                                                    })));
+                                }),
+                              className: "relative inline-block text-left"
+                            }), React.createElement(Icons$UnicodeToZawgyi.Settings.make, {
+                              className: "mobile-icon",
+                              onClick: (function (e) {
+                                  e.preventDefault();
+                                  console.log("test");
+                                  
+                                })
+                            }))), React.createElement("div", {
                       className: "pt-4"
                     }, React.createElement(App$TextArea, {
                           fontFamily: unicodeFontName,

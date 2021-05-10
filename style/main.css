@@ -19,4 +19,10 @@ html {
 			leading-7 rounded resize-none w-full outline-none
 			focus:ring-0 focus:ring-primary_100 focus:outline-none ;
 	}
+
+	.mobile-icon {
+		@apply h-9 w-9 md:h-8 md:w-8 p-1 self-end
+			bg-primary_transparent rounded border
+			text-primary_300 focus:outline-none hover:text-primary_200 active:text-primary_400;
+	}
 }

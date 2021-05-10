@@ -37,8 +37,6 @@ module TextArea = {
     ~height=?,
     ~show=?,
     ~onFocus=(_: ReactEvent.Focus.t) => (),
-    ~onKeyUp=(_: ReactEvent.Keyboard.t) => (),
-    ~onKeyDown=(_: ReactEvent.Keyboard.t) => (),
     ~onChange,
   ) => {
     let display = switch show {
@@ -49,7 +47,7 @@ module TextArea = {
     | Some(h) => ReactDOM.Style.make(~fontFamily, ~height=h, ~display, ())
     | None => ReactDOM.Style.make(~fontFamily, ~display, ())
     }
-    <textarea className="text-area" style value onChange onFocus onKeyUp onKeyDown />
+    <textarea className="text-area" style value onChange onFocus />
   }
 }
 
@@ -58,7 +56,7 @@ let zawgyiFontName = "Noto Sans Zawgyi"
 
 type tabType = [#Unicode | #Zawgyi]
 
-let mobileHeight = "calc(100vh - 8.5em)"
+let mobileHeight = "calc(100vh - 7.2em)"
 
 let initialSelectedTab: tabType = #Unicode
 
@@ -101,7 +99,7 @@ let make = () => {
   <div className={j`$theme h-screen`}>
     <div
       id="lg-screen"
-      className="hidden 2xl:flex flex-row space-x-5 p-10 pt-12 bg-primary_700 justify-between"
+      className="hidden 2xl:flex flex-row space-x-5 p-6  bg-primary_700 justify-between"
       style={ReactDOM.Style.make(~height="calc(100vh - 1.5em)", ())}>
       <div className="flex flex-col flex-1 space-y-4 self-stretch">
         <span className={getLgLabelaClass(focusedLgTextArea == #Unicode)}>
@@ -128,8 +126,8 @@ let make = () => {
         />
       </div>
     </div>
-    <div id="non-lg-screen" className="2xl:hidden flex flex-col p-4 pt-12 bg-primary_700">
-      <div className="space-x-10 pb-2">
+    <div id="non-lg-screen" className="2xl:hidden flex flex-col p-4 bg-primary_700">
+      <div className="flex flex-row space-x-4">
         <a
           href="#"
           onClick={_ => setSelectedTab(_ => #Unicode)}
@@ -142,6 +140,63 @@ let make = () => {
           className={getTabLabelClass(selectedTab == #Zawgyi)}>
           {(#Zawgyi: tabType :> string)->string}
         </a>
+        <div className="flex flex-row space-x-2 flex-1 justify-end">
+          <Icons.Trash className="mobile-icon" onClick={_ => Js.log("test")} />
+          <HLMenu as_="div" className="relative inline-block text-left">
+            {({open_}) => {
+              <>
+                <HLMenu.Button className="mobile-icon">
+                  <Icons.Copy
+                    onClick={e => {
+                      ReactEvent.Focus.preventDefault(e)
+                      Js.log("test")
+                    }}
+                  />
+                </HLMenu.Button>
+                <HLMenu.Items
+                  static=open_
+                  as_="div"
+                  className="flex flex-col origin-top-right absolute 
+                  right-11 top-12 mt-4 w-40 p-1 bg-primary_600  
+                  rounded divide-y divide-primary_200 focus:outline-none">
+                  <HLMenu.Item>
+                    {({active}) => {
+                      <a
+                        href=""
+                        className="p-1 bg-primary_transparent text-primary_100 pl-5"
+                        onClick={e => {
+                          ReactEvent.Mouse.preventDefault(e)
+                        }}>
+                        {"Copy Unicode"->string}
+                      </a>
+                    }}
+                  </HLMenu.Item>
+                  <HLMenu.Item>
+                    {({active}) => {
+                      <a href="" className="p-1 bg-primary_transparent text-primary_100 pl-5">
+                        {"Copy Zawgyi"->string}
+                      </a>
+                    }}
+                  </HLMenu.Item>
+                  <HLMenu.Item>
+                    {({active}) => {
+                      <a href="" className="p-1 bg-primary_transparent text-primary_100 pl-5">
+                        {"Copy Both"->string}
+                      </a>
+                    }}
+                  </HLMenu.Item>
+                </HLMenu.Items>
+              </>
+            }}
+          </HLMenu>
+          <Icons.Settings
+            className="mobile-icon"
+            onClick={e => {
+              ReactEvent.Focus.preventDefault(e)
+              Js.log("test")
+            }}
+          />
+        </div>
       </div>
       <div className="pt-4">
         <TextArea
