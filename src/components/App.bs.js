@@ -109,6 +109,15 @@ function App(Props) {
                   return Rabbit$UnicodeToZawgyi.uni2zg(newValue);
                 }));
   };
+  var handleZawgyiTextChange = function (e) {
+    var newValue = e.target.value;
+    Curry._1(setZawgyiText, (function (param) {
+            return newValue;
+          }));
+    return Curry._1(setUnicodeText, (function (param) {
+                  return Rabbit$UnicodeToZawgyi.zg2uni(newValue);
+                }));
+  };
   return React.createElement("div", {
               className: "" + match[0] + " h-screen"
             }, React.createElement("div", {
@@ -144,11 +153,7 @@ function App(Props) {
                                             return "Zawgyi";
                                           }));
                             }),
-                          onChange: (function (e) {
-                              return Curry._1(setZawgyiText, (function (param) {
-                                            return e.target.value;
-                                          }));
-                            })
+                          onChange: handleZawgyiTextChange
                         }))), React.createElement("div", {
                   className: "2xl:hidden flex flex-col p-4 pt-12 bg-primary_700",
                   id: "non-lg-screen"
@@ -183,11 +188,7 @@ function App(Props) {
                           value: zawgyiText,
                           height: mobileHeight,
                           show: selectedTab === "Zawgyi",
-                          onChange: (function (e) {
-                              return Curry._1(setZawgyiText, (function (param) {
-                                            return e.target.value;
-                                          }));
-                            })
+                          onChange: handleZawgyiTextChange
                         }))), React.createElement("footer", {
                   className: "flex flex-row justify-between px-4 2xl:px-10 bg-primary_800 text-primary_400"
                 }, React.createElement("div", {

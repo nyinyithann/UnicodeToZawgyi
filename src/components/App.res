@@ -92,6 +92,12 @@ let make = () => {
     setZawgyiText(_ => Rabbit.uni2zg(newValue))
   }
 
+  let handleZawgyiTextChange = e => {
+    let newValue = ReactEvent.Form.target(e)["value"]
+    setZawgyiText(_ => newValue)
+    setUnicodeText(_ => Rabbit.zg2uni(newValue))
+  }
+
   <div className={j`$theme h-screen`}>
     <div
       id="lg-screen"
@@ -118,7 +124,7 @@ let make = () => {
           value=zawgyiText
           show=true
           onFocus={e => setFocusedLgTextArea(_ => #Zawgyi)}
-          onChange={e => setZawgyiText(_ => ReactEvent.Form.target(e)["value"])}
+          onChange={handleZawgyiTextChange}
         />
       </div>
     </div>
@@ -150,7 +156,7 @@ let make = () => {
           value=zawgyiText
           height=mobileHeight
           show={selectedTab == #Zawgyi}
-          onChange={e => setZawgyiText(_ => ReactEvent.Form.target(e)["value"])}
+          onChange={handleZawgyiTextChange}
         />
       </div>
     </div>

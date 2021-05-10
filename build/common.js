@@ -76,7 +76,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HtmlWebpackPlugin({
-      title: 'Unicode To Zawgyi',
+      title: 'Unicode To Zawgyi, Zawgyi To Unicode',
       favicon: path.resolve(__dirname, '..', './public/brand/favicon.ico'),
       template: path.resolve(__dirname, '..', './src/index.html'),
       hash: true,
