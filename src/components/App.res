@@ -145,7 +145,6 @@ let make = () => {
               <Icons.Settings
                 onClick={e => {
                   ReactEvent.Focus.preventDefault(e)
-                  Js.log("test")
                 }}
               />
             </HLMenu.Button>
