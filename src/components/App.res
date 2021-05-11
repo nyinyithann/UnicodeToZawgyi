@@ -94,15 +94,141 @@ let make = () => {
     Util.copy(unicodeText ++ "\n\r" ++ zawgyiText)->ignore
   }
 
+  let menu = (kind: [#mb | #lg]) => {
+    let cn = "flex flex-col origin-top-right absolute mt-4 w-40 p-1 bg-primary_600 rounded divide-y divide-primary_200 focus:outline-none"
+    let (copyClassName, colorClassName) = switch kind {
+    | #mb => (cn ++ " right-11 top-12", cn ++ " right-8 top-12")
+    | #lg => (cn ++ " right-4 top-6", cn ++ " right-1 top-6")
+    }
+    <div className="flex flex-row space-x-2 flex-1 justify-end">
+      <Icons.Trash className="mobile-icon" onClick={deleteText} />
+      <HLMenu as_="div" className="relative inline-block text-left">
+        {({open_}) => {
+          <>
+            <HLMenu.Button className="mobile-icon">
+              <Icons.Copy
+                onClick={e => {
+                  ReactEvent.Focus.preventDefault(e)
+                }}
+              />
+            </HLMenu.Button>
+            <HLMenu.Items static=open_ as_="div" className=copyClassName>
+              <HLMenu.Item>
+                {_ => {
+                  <a href="" className="copy-menu-item" onClick={copyUnicodeText}>
+                    {"Copy Unicode"->string}
+                  </a>
+                }}
+              </HLMenu.Item>
+              <HLMenu.Item>
+                {_ => {
+                  <a href="" className="copy-menu-item" onClick={copyZawgyiText}>
+                    {"Copy Zawgyi"->string}
+                  </a>
+                }}
+              </HLMenu.Item>
+              <HLMenu.Item>
+                {_ => {
+                  <a href="" className="copy-menu-item" onClick={copyBothText}>
+                    {"Copy Both"->string}
+                  </a>
+                }}
+              </HLMenu.Item>
+            </HLMenu.Items>
+          </>
+        }}
+      </HLMenu>
+      <HLMenu as_="div" className="relative inline-block text-left">
+        {({open_}) => {
+          <>
+            <HLMenu.Button className="mobile-icon">
+              <Icons.Settings
+                onClick={e => {
+                  ReactEvent.Focus.preventDefault(e)
+                  Js.log("test")
+                }}
+              />
+            </HLMenu.Button>
+            <HLMenu.Items static=open_ as_="div" className=colorClassName>
+              <HLMenu.Item>
+                {_ => {
+                  <>
+                    <div className="flex flex-col">
+                      <div className="theme-menu-internal-div">
+                        <button
+                          type_="button"
+                          className="theme-btn"
+                          style={ReactDOM.Style.make(~background="#6B7280", ())}
+                          onClick={_ => setTheme(_ => "theme-gray")}
+                        />
+                        <button
+                          type_="button"
+                          className="theme-btn"
+                          style={ReactDOM.Style.make(~background="#EF4444", ())}
+                          onClick={_ => setTheme(_ => "theme-red")}
+                        />
+                        <button
+                          type_="button"
+                          className="theme-btn"
+                          style={ReactDOM.Style.make(~background="#3B82F6", ())}
+                          onClick={_ => setTheme(_ => "theme-blue")}
+                        />
+                        <button
+                          type_="button"
+                          className="theme-btn"
+                          style={ReactDOM.Style.make(~background="#F59E0B", ())}
+                          onClick={_ => setTheme(_ => "theme-yellow")}
+                        />
+                      </div>
+                      <div className="theme-menu-internal-div">
+                        <button
+                          type_="button"
+                          className="theme-btn"
+                          style={ReactDOM.Style.make(~background="#10B981", ())}
+                          onClick={_ => setTheme(_ => "theme-green")}
+                        />
+                        <button
+                          type_="button"
+                          className="theme-btn"
+                          style={ReactDOM.Style.make(~background="#6366F1", ())}
+                          onClick={_ => setTheme(_ => "theme-indigo")}
+                        />
+                        <button
+                          type_="button"
+                          className="theme-btn"
+                          style={ReactDOM.Style.make(~background="#8B5CF6", ())}
+                          onClick={_ => setTheme(_ => "theme-purple")}
+                        />
+                        <button
+                          type_="button"
+                          className="theme-btn"
+                          style={ReactDOM.Style.make(~background="#EC4899", ())}
+                          onClick={_ => setTheme(_ => "theme-pink")}
+                        />
+                      </div>
+                    </div>
+                  </>
+                }}
+              </HLMenu.Item>
+            </HLMenu.Items>
+          </>
+        }}
+      </HLMenu>
+    </div>
+  }
+
   <div className={j`$theme h-screen`}>
     <div
       id="lg-screen"
       className="hidden 2xl:flex flex-row space-x-5 p-6 bg-primary_700 justify-between"
       style={ReactDOM.Style.make(~height="calc(100vh - 1.5em)", ())}>
       <div className="flex flex-col flex-1 space-y-4 self-stretch">
-        <span className={getLgLabelaClass(focusedLgTextArea == #Unicode)}>
-          {(#Unicode: tabType :> string)->string}
-        </span>
+        <div className="flex flex-row relative">
+          <span className={getLgLabelaClass(focusedLgTextArea == #Unicode)}>
+            {(#Unicode: tabType :> string)->string}
+          </span>
+          {menu(#lg)}
+        </div>
         <TextArea
           fontFamily=unicodeFontName
           value=unicodeText
@@ -112,9 +238,12 @@ let make = () => {
         />
       </div>
       <div className="flex flex-col flex-1 space-y-4 self-stretch">
-        <span className={getLgLabelaClass(focusedLgTextArea == #Zawgyi)}>
-          {(#Zawgyi: tabType :> string)->string}
-        </span>
+        <div className="flex flex-row relative">
+          <span className={getLgLabelaClass(focusedLgTextArea == #Zawgyi)}>
+            {(#Zawgyi: tabType :> string)->string}
+          </span>
+          {menu(#lg)}
+        </div>
         <TextArea
           fontFamily=zawgyiFontName
           value=zawgyiText
@@ -138,131 +267,7 @@ let make = () => {
           className={getTabLabelClass(selectedTab == #Zawgyi)}>
           {(#Zawgyi: tabType :> string)->string}
         </a>
-        <div className="flex flex-row space-x-2 flex-1 justify-end">
-          <Icons.Trash className="mobile-icon" onClick={deleteText} />
-          <HLMenu as_="div" className="relative inline-block text-left">
-            {({open_}) => {
-              <>
-                <HLMenu.Button className="mobile-icon">
-                  <Icons.Copy
-                    onClick={e => {
-                      ReactEvent.Focus.preventDefault(e)
-                    }}
-                  />
-                </HLMenu.Button>
-                <HLMenu.Items
-                  static=open_
-                  as_="div"
-                  className="flex flex-col origin-top-right absolute 
-                  right-11 top-12 mt-4 w-40 p-1 bg-primary_600  
-                  rounded divide-y divide-primary_200 focus:outline-none">
-                  <HLMenu.Item>
-                    {_ => {
-                      <a href="" className="copy-menu-item" onClick={copyUnicodeText}>
-                        {"Copy Unicode"->string}
-                      </a>
-                    }}
-                  </HLMenu.Item>
-                  <HLMenu.Item>
-                    {_ => {
-                      <a href="" className="copy-menu-item" onClick={copyZawgyiText}>
-                        {"Copy Zawgyi"->string}
-                      </a>
-                    }}
-                  </HLMenu.Item>
-                  <HLMenu.Item>
-                    {_ => {
-                      <a href="" className="copy-menu-item" onClick={copyBothText}>
-                        {"Copy Both"->string}
-                      </a>
-                    }}
-                  </HLMenu.Item>
-                </HLMenu.Items>
-              </>
-            }}
-          </HLMenu>
-          <HLMenu as_="div" className="relative inline-block text-left">
-            {({open_}) => {
-              <>
-                <HLMenu.Button className="mobile-icon">
-                  <Icons.Settings
-                    onClick={e => {
-                      ReactEvent.Focus.preventDefault(e)
-                      Js.log("test")
-                    }}
-                  />
-                </HLMenu.Button>
-                <HLMenu.Items
-                  static=open_
-                  as_="div"
-                  className="flex flex-row origin-top-right absolute 
-                  right-8 top-12 mt-4 w-40 p-1 bg-primary_600  justify-between
-                  rounded divide-y divide-primary_200 focus:outline-none">
-                  <HLMenu.Item>
-                    {_ => {
-                      <>
-                        <div className="flex flex-col">
-                          <div className="theme-menu-internal-div">
-                            <button
-                              type_="button"
-                              className="theme-btn"
-                              style={ReactDOM.Style.make(~background="#6B7280", ())}
-                              onClick={_ => setTheme(_ => "theme-gray")}
-                            />
-                            <button
-                              type_="button"
-                              className="theme-btn"
-                              style={ReactDOM.Style.make(~background="#EF4444", ())}
-                              onClick={_ => setTheme(_ => "theme-red")}
-                            />
-                            <button
-                              type_="button"
-                              className="theme-btn"
-                              style={ReactDOM.Style.make(~background="#3B82F6", ())}
-                              onClick={_ => setTheme(_ => "theme-blue")}
-                            />
-                            <button
-                              type_="button"
-                              className="theme-btn"
-                              style={ReactDOM.Style.make(~background="#F59E0B", ())}
-                              onClick={_ => setTheme(_ => "theme-yellow")}
-                            />
-                          </div>
-                          <div className="theme-menu-internal-div">
-                            <button
-                              type_="button"
-                              className="theme-btn"
-                              style={ReactDOM.Style.make(~background="#10B981", ())}
-                              onClick={_ => setTheme(_ => "theme-green")}
-                            />
-                            <button
-                              type_="button"
-                              className="theme-btn"
-                              style={ReactDOM.Style.make(~background="#6366F1", ())}
-                              onClick={_ => setTheme(_ => "theme-indigo")}
-                            />
-                            <button
-                              type_="button"
-                              className="theme-btn"
-                              style={ReactDOM.Style.make(~background="#8B5CF6", ())}
-                              onClick={_ => setTheme(_ => "theme-purple")}
-                            />
-                            <button
-                              type_="button"
-                              className="theme-btn"
-                              style={ReactDOM.Style.make(~background="#EC4899", ())}
-                              onClick={_ => setTheme(_ => "theme-pink")}
-                            />
-                          </div>
-                        </div>
-                      </>
-                    }}
-                  </HLMenu.Item>
-                </HLMenu.Items>
-              </>
-            }}
-          </HLMenu>
-        </div>
+        {menu(#mb)}
       </div>
       <div className="pt-4">
         <TextArea

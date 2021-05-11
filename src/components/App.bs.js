@@ -104,6 +104,184 @@ function App(Props) {
     Util$UnicodeToZawgyi.copy(unicodeText + "\n\r" + zawgyiText);
     
   };
+  var menu = function (kind) {
+    var match = kind === "mb" ? [
+        "flex flex-col origin-top-right absolute mt-4 w-40 p-1 bg-primary_600 rounded divide-y divide-primary_200 focus:outline-none right-11 top-12",
+        "flex flex-col origin-top-right absolute mt-4 w-40 p-1 bg-primary_600 rounded divide-y divide-primary_200 focus:outline-none right-8 top-12"
+      ] : [
+        "flex flex-col origin-top-right absolute mt-4 w-40 p-1 bg-primary_600 rounded divide-y divide-primary_200 focus:outline-none right-4 top-6",
+        "flex flex-col origin-top-right absolute mt-4 w-40 p-1 bg-primary_600 rounded divide-y divide-primary_200 focus:outline-none right-1 top-6"
+      ];
+    var colorClassName = match[1];
+    var copyClassName = match[0];
+    return React.createElement("div", {
+                className: "flex flex-row space-x-2 flex-1 justify-end"
+              }, React.createElement(Icons$UnicodeToZawgyi.Trash.make, {
+                    className: "mobile-icon",
+                    onClick: deleteText
+                  }), React.createElement(React$1.Menu, {
+                    as_: "div",
+                    children: (function (param) {
+                        return React.createElement(React.Fragment, undefined, React.createElement(React$1.Menu.Button, {
+                                        children: React.createElement(Icons$UnicodeToZawgyi.Copy.make, {
+                                              onClick: (function (e) {
+                                                  e.preventDefault();
+                                                  
+                                                })
+                                            }),
+                                        className: "mobile-icon"
+                                      }), React.createElement(React$1.Menu.Items, {
+                                        as_: "div",
+                                        children: null,
+                                        className: copyClassName,
+                                        static: param.open
+                                      }, React.createElement(React$1.Menu.Item, {
+                                            children: (function (param) {
+                                                return React.createElement("a", {
+                                                            className: "copy-menu-item",
+                                                            href: "",
+                                                            onClick: copyUnicodeText
+                                                          }, "Copy Unicode");
+                                              })
+                                          }), React.createElement(React$1.Menu.Item, {
+                                            children: (function (param) {
+                                                return React.createElement("a", {
+                                                            className: "copy-menu-item",
+                                                            href: "",
+                                                            onClick: copyZawgyiText
+                                                          }, "Copy Zawgyi");
+                                              })
+                                          }), React.createElement(React$1.Menu.Item, {
+                                            children: (function (param) {
+                                                return React.createElement("a", {
+                                                            className: "copy-menu-item",
+                                                            href: "",
+                                                            onClick: copyBothText
+                                                          }, "Copy Both");
+                                              })
+                                          })));
+                      }),
+                    className: "relative inline-block text-left"
+                  }), React.createElement(React$1.Menu, {
+                    as_: "div",
+                    children: (function (param) {
+                        return React.createElement(React.Fragment, undefined, React.createElement(React$1.Menu.Button, {
+                                        children: React.createElement(Icons$UnicodeToZawgyi.Settings.make, {
+                                              onClick: (function (e) {
+                                                  e.preventDefault();
+                                                  console.log("test");
+                                                  
+                                                })
+                                            }),
+                                        className: "mobile-icon"
+                                      }), React.createElement(React$1.Menu.Items, {
+                                        as_: "div",
+                                        children: React.createElement(React$1.Menu.Item, {
+                                              children: (function (param) {
+                                                  return React.createElement(React.Fragment, undefined, React.createElement("div", {
+                                                                  className: "flex flex-col"
+                                                                }, React.createElement("div", {
+                                                                      className: "theme-menu-internal-div"
+                                                                    }, React.createElement("button", {
+                                                                          className: "theme-btn",
+                                                                          style: {
+                                                                            background: "#6B7280"
+                                                                          },
+                                                                          type: "button",
+                                                                          onClick: (function (param) {
+                                                                              return Curry._1(setTheme, (function (param) {
+                                                                                            return "theme-gray";
+                                                                                          }));
+                                                                            })
+                                                                        }), React.createElement("button", {
+                                                                          className: "theme-btn",
+                                                                          style: {
+                                                                            background: "#EF4444"
+                                                                          },
+                                                                          type: "button",
+                                                                          onClick: (function (param) {
+                                                                              return Curry._1(setTheme, (function (param) {
+                                                                                            return "theme-red";
+                                                                                          }));
+                                                                            })
+                                                                        }), React.createElement("button", {
+                                                                          className: "theme-btn",
+                                                                          style: {
+                                                                            background: "#3B82F6"
+                                                                          },
+                                                                          type: "button",
+                                                                          onClick: (function (param) {
+                                                                              return Curry._1(setTheme, (function (param) {
+                                                                                            return "theme-blue";
+                                                                                          }));
+                                                                            })
+                                                                        }), React.createElement("button", {
+                                                                          className: "theme-btn",
+                                                                          style: {
+                                                                            background: "#F59E0B"
+                                                                          },
+                                                                          type: "button",
+                                                                          onClick: (function (param) {
+                                                                              return Curry._1(setTheme, (function (param) {
+                                                                                            return "theme-yellow";
+                                                                                          }));
+                                                                            })
+                                                                        })), React.createElement("div", {
+                                                                      className: "theme-menu-internal-div"
+                                                                    }, React.createElement("button", {
+                                                                          className: "theme-btn",
+                                                                          style: {
+                                                                            background: "#10B981"
+                                                                          },
+                                                                          type: "button",
+                                                                          onClick: (function (param) {
+                                                                              return Curry._1(setTheme, (function (param) {
+                                                                                            return "theme-green";
+                                                                                          }));
+                                                                            })
+                                                                        }), React.createElement("button", {
+                                                                          className: "theme-btn",
+                                                                          style: {
+                                                                            background: "#6366F1"
+                                                                          },
+                                                                          type: "button",
+                                                                          onClick: (function (param) {
+                                                                              return Curry._1(setTheme, (function (param) {
+                                                                                            return "theme-indigo";
+                                                                                          }));
+                                                                            })
+                                                                        }), React.createElement("button", {
+                                                                          className: "theme-btn",
+                                                                          style: {
+                                                                            background: "#8B5CF6"
+                                                                          },
+                                                                          type: "button",
+                                                                          onClick: (function (param) {
+                                                                              return Curry._1(setTheme, (function (param) {
+                                                                                            return "theme-purple";
+                                                                                          }));
+                                                                            })
+                                                                        }), React.createElement("button", {
+                                                                          className: "theme-btn",
+                                                                          style: {
+                                                                            background: "#EC4899"
+                                                                          },
+                                                                          type: "button",
+                                                                          onClick: (function (param) {
+                                                                              return Curry._1(setTheme, (function (param) {
+                                                                                            return "theme-pink";
+                                                                                          }));
+                                                                            })
+                                                                        }))));
+                                                })
+                                            }),
+                                        className: colorClassName,
+                                        static: param.open
+                                      }));
+                      }),
+                    className: "relative inline-block text-left"
+                  }));
+  };
   return React.createElement("div", {
               className: "" + match[0] + " h-screen"
             }, React.createElement("div", {
@@ -114,9 +292,11 @@ function App(Props) {
                   }
                 }, React.createElement("div", {
                       className: "flex flex-col flex-1 space-y-4 self-stretch"
-                    }, React.createElement("span", {
-                          className: getLgLabelaClass(focusedLgTextArea === "Unicode")
-                        }, "Unicode"), React.createElement(TextArea$UnicodeToZawgyi.make, {
+                    }, React.createElement("div", {
+                          className: "flex flex-row relative"
+                        }, React.createElement("span", {
+                              className: getLgLabelaClass(focusedLgTextArea === "Unicode")
+                            }, "Unicode"), menu("lg")), React.createElement(TextArea$UnicodeToZawgyi.make, {
                           fontFamily: unicodeFontName,
                           value: unicodeText,
                           show: true,
@@ -128,9 +308,11 @@ function App(Props) {
                           onChange: handleUnicodeTextChange
                         })), React.createElement("div", {
                       className: "flex flex-col flex-1 space-y-4 self-stretch"
-                    }, React.createElement("span", {
-                          className: getLgLabelaClass(focusedLgTextArea === "Zawgyi")
-                        }, "Zawgyi"), React.createElement(TextArea$UnicodeToZawgyi.make, {
+                    }, React.createElement("div", {
+                          className: "flex flex-row relative"
+                        }, React.createElement("span", {
+                              className: getLgLabelaClass(focusedLgTextArea === "Zawgyi")
+                            }, "Zawgyi"), menu("lg")), React.createElement(TextArea$UnicodeToZawgyi.make, {
                           fontFamily: zawgyiFontName,
                           value: zawgyiText,
                           show: true,
@@ -161,173 +343,7 @@ function App(Props) {
                                             return "Zawgyi";
                                           }));
                             })
-                        }, "Zawgyi"), React.createElement("div", {
-                          className: "flex flex-row space-x-2 flex-1 justify-end"
-                        }, React.createElement(Icons$UnicodeToZawgyi.Trash.make, {
-                              className: "mobile-icon",
-                              onClick: deleteText
-                            }), React.createElement(React$1.Menu, {
-                              as_: "div",
-                              children: (function (param) {
-                                  return React.createElement(React.Fragment, undefined, React.createElement(React$1.Menu.Button, {
-                                                  children: React.createElement(Icons$UnicodeToZawgyi.Copy.make, {
-                                                        onClick: (function (e) {
-                                                            e.preventDefault();
-                                                            
-                                                          })
-                                                      }),
-                                                  className: "mobile-icon"
-                                                }), React.createElement(React$1.Menu.Items, {
-                                                  as_: "div",
-                                                  children: null,
-                                                  className: "flex flex-col origin-top-right absolute \n                  right-11 top-12 mt-4 w-40 p-1 bg-primary_600  \n                  rounded divide-y divide-primary_200 focus:outline-none",
-                                                  static: param.open
-                                                }, React.createElement(React$1.Menu.Item, {
-                                                      children: (function (param) {
-                                                          return React.createElement("a", {
-                                                                      className: "copy-menu-item",
-                                                                      href: "",
-                                                                      onClick: copyUnicodeText
-                                                                    }, "Copy Unicode");
-                                                        })
-                                                    }), React.createElement(React$1.Menu.Item, {
-                                                      children: (function (param) {
-                                                          return React.createElement("a", {
-                                                                      className: "copy-menu-item",
-                                                                      href: "",
-                                                                      onClick: copyZawgyiText
-                                                                    }, "Copy Zawgyi");
-                                                        })
-                                                    }), React.createElement(React$1.Menu.Item, {
-                                                      children: (function (param) {
-                                                          return React.createElement("a", {
-                                                                      className: "copy-menu-item",
-                                                                      href: "",
-                                                                      onClick: copyBothText
-                                                                    }, "Copy Both");
-                                                        })
-                                                    })));
-                                }),
-                              className: "relative inline-block text-left"
-                            }), React.createElement(React$1.Menu, {
-                              as_: "div",
-                              children: (function (param) {
-                                  return React.createElement(React.Fragment, undefined, React.createElement(React$1.Menu.Button, {
-                                                  children: React.createElement(Icons$UnicodeToZawgyi.Settings.make, {
-                                                        onClick: (function (e) {
-                                                            e.preventDefault();
-                                                            console.log("test");
-                                                            
-                                                          })
-                                                      }),
-                                                  className: "mobile-icon"
-                                                }), React.createElement(React$1.Menu.Items, {
-                                                  as_: "div",
-                                                  children: React.createElement(React$1.Menu.Item, {
-                                                        children: (function (param) {
-                                                            return React.createElement(React.Fragment, undefined, React.createElement("div", {
-                                                                            className: "flex flex-col"
-                                                                          }, React.createElement("div", {
-                                                                                className: "theme-menu-internal-div"
-                                                                              }, React.createElement("button", {
-                                                                                    className: "theme-btn",
-                                                                                    style: {
-                                                                                      background: "#6B7280"
-                                                                                    },
-                                                                                    type: "button",
-                                                                                    onClick: (function (param) {
-                                                                                        return Curry._1(setTheme, (function (param) {
-                                                                                                      return "theme-gray";
-                                                                                                    }));
-                                                                                      })
-                                                                                  }), React.createElement("button", {
-                                                                                    className: "theme-btn",
-                                                                                    style: {
-                                                                                      background: "#EF4444"
-                                                                                    },
-                                                                                    type: "button",
-                                                                                    onClick: (function (param) {
-                                                                                        return Curry._1(setTheme, (function (param) {
-                                                                                                      return "theme-red";
-                                                                                                    }));
-                                                                                      })
-                                                                                  }), React.createElement("button", {
-                                                                                    className: "theme-btn",
-                                                                                    style: {
-                                                                                      background: "#3B82F6"
-                                                                                    },
-                                                                                    type: "button",
-                                                                                    onClick: (function (param) {
-                                                                                        return Curry._1(setTheme, (function (param) {
-                                                                                                      return "theme-blue";
-                                                                                                    }));
-                                                                                      })
-                                                                                  }), React.createElement("button", {
-                                                                                    className: "theme-btn",
-                                                                                    style: {
-                                                                                      background: "#F59E0B"
-                                                                                    },
-                                                                                    type: "button",
-                                                                                    onClick: (function (param) {
-                                                                                        return Curry._1(setTheme, (function (param) {
-                                                                                                      return "theme-yellow";
-                                                                                                    }));
-                                                                                      })
-                                                                                  })), React.createElement("div", {
-                                                                                className: "theme-menu-internal-div"
-                                                                              }, React.createElement("button", {
-                                                                                    className: "theme-btn",
-                                                                                    style: {
-                                                                                      background: "#10B981"
-                                                                                    },
-                                                                                    type: "button",
-                                                                                    onClick: (function (param) {
-                                                                                        return Curry._1(setTheme, (function (param) {
-                                                                                                      return "theme-green";
-                                                                                                    }));
-                                                                                      })
-                                                                                  }), React.createElement("button", {
-                                                                                    className: "theme-btn",
-                                                                                    style: {
-                                                                                      background: "#6366F1"
-                                                                                    },
-                                                                                    type: "button",
-                                                                                    onClick: (function (param) {
-                                                                                        return Curry._1(setTheme, (function (param) {
-                                                                                                      return "theme-indigo";
-                                                                                                    }));
-                                                                                      })
-                                                                                  }), React.createElement("button", {
-                                                                                    className: "theme-btn",
-                                                                                    style: {
-                                                                                      background: "#8B5CF6"
-                                                                                    },
-                                                                                    type: "button",
-                                                                                    onClick: (function (param) {
-                                                                                        return Curry._1(setTheme, (function (param) {
-                                                                                                      return "theme-purple";
-                                                                                                    }));
-                                                                                      })
-                                                                                  }), React.createElement("button", {
-                                                                                    className: "theme-btn",
-                                                                                    style: {
-                                                                                      background: "#EC4899"
-                                                                                    },
-                                                                                    type: "button",
-                                                                                    onClick: (function (param) {
-                                                                                        return Curry._1(setTheme, (function (param) {
-                                                                                                      return "theme-pink";
-                                                                                                    }));
-                                                                                      })
-                                                                                  }))));
-                                                          })
-                                                      }),
-                                                  className: "flex flex-row origin-top-right absolute \n                  right-8 top-12 mt-4 w-40 p-1 bg-primary_600  justify-between\n                  rounded divide-y divide-primary_200 focus:outline-none",
-                                                  static: param.open
-                                                }));
-                                }),
-                              className: "relative inline-block text-left"
-                            }))), React.createElement("div", {
+                        }, "Zawgyi"), menu("mb")), React.createElement("div", {
                       className: "pt-4"
                     }, React.createElement(TextArea$UnicodeToZawgyi.make, {
                           fontFamily: unicodeFontName,
