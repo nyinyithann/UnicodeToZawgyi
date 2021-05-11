@@ -7,8 +7,6 @@ external make: (
   ~className: string=?,
 ) => React.element = "Menu"
 
-// type buttonRenderPropArg = {@as("open") open_: bool}
-
 module Button = {
   @module("@headlessui/react") @scope("Menu") @react.component
   external make: (
@@ -17,8 +15,6 @@ module Button = {
     ~className: string=?,
   ) => React.element = "Button"
 }
-
-// type itemsRenderPropArg = {@as("open") open_: bool}
 
 module Items = {
   @module("@headlessui/react") @scope("Menu") @react.component
