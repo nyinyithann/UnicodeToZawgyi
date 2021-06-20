@@ -58,20 +58,20 @@ let getTabLabelClass = selected => {
 let make = () => {
   let (theme, setTheme) = useState(_ => "theme-gray")
   let (unicodeText, setUnicodeText) = useState(_ => unicodeSampleText)
-  let (zawgyiText, setZawgyiText) = useState(_ => Rabbit.uni2zg(unicodeSampleText))
+  let (zawgyiText, setZawgyiText) = useState(_ => Converter.uni2zg(unicodeSampleText))
   let (selectedTab, setSelectedTab) = useState(_ => initialSelectedTab)
   let (focusedLgTextArea, setFocusedLgTextArea) = useState(_ => initialSelectedTab)
 
   let handleUnicodeTextChange = e => {
     let newValue = ReactEvent.Form.target(e)["value"]
     setUnicodeText(_ => newValue)
-    setZawgyiText(_ => Rabbit.uni2zg(newValue))
+    setZawgyiText(_ => Converter.uni2zg(newValue))
   }
 
   let handleZawgyiTextChange = e => {
     let newValue = ReactEvent.Form.target(e)["value"]
     setZawgyiText(_ => newValue)
-    setUnicodeText(_ => Rabbit.zg2uni(newValue))
+    setUnicodeText(_ => Converter.zg2uni(newValue))
   }
 
   let deleteText = _ => {

@@ -2,10 +2,10 @@
 
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
+import * as Converter from "rescript-unicode-zawgyi-converter/src/converter.bs.js";
 import * as React$1 from "@headlessui/react";
 import * as Util$UnicodeToZawgyi from "../Util.bs.js";
 import * as Icons$UnicodeToZawgyi from "./Icons.bs.js";
-import * as Rabbit$UnicodeToZawgyi from "../Rabbit.bs.js";
 import * as TextArea$UnicodeToZawgyi from "./TextArea.bs.js";
 
 function string(prim) {
@@ -49,7 +49,7 @@ function App(Props) {
   var setUnicodeText = match$1[1];
   var unicodeText = match$1[0];
   var match$2 = React.useState(function () {
-        return Rabbit$UnicodeToZawgyi.uni2zg(unicodeSampleText);
+        return Converter.uni2zg(unicodeSampleText);
       });
   var setZawgyiText = match$2[1];
   var zawgyiText = match$2[0];
@@ -69,7 +69,7 @@ function App(Props) {
             return newValue;
           }));
     return Curry._1(setZawgyiText, (function (param) {
-                  return Rabbit$UnicodeToZawgyi.uni2zg(newValue);
+                  return Converter.uni2zg(newValue);
                 }));
   };
   var handleZawgyiTextChange = function (e) {
@@ -78,7 +78,7 @@ function App(Props) {
             return newValue;
           }));
     return Curry._1(setUnicodeText, (function (param) {
-                  return Rabbit$UnicodeToZawgyi.zg2uni(newValue);
+                  return Converter.zg2uni(newValue);
                 }));
   };
   var deleteText = function (param) {
@@ -169,7 +169,6 @@ function App(Props) {
                                         children: React.createElement(Icons$UnicodeToZawgyi.Settings.make, {
                                               onClick: (function (e) {
                                                   e.preventDefault();
-                                                  console.log("test");
                                                   
                                                 })
                                             }),

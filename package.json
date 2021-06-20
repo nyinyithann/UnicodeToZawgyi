@@ -32,7 +32,7 @@
     "postcss-cli": "^8.3.1",
     "postcss-loader": "^5.2.0",
     "prettier": "^2.2.1",
-    "rescript": "^9.1.2",
+    "rescript": "^9.1.4",
     "style-loader": "^2.0.0",
     "stylelint": "^13.12.0",
     "stylelint-config-standard": "^22.0.0",
@@ -51,7 +51,7 @@
     "build:prod": "TAILWIND_MODE=build NODE_ENV=production rescript clean && rescript build && webpack --config build/webpack.js --env env=prod",
     "build:dev": "TAILWIND_MODE=build NODE_ENV=development rescript clean && rescript build && webpack --config build/webpack.js --env env=dev",
     "start": "TAILWIND_MODE=watch NODE_ENV=development webpack serve --config build/webpack.js --env env=dev",
-    "build:res": "rescript",
+    "build:res": "rescript build -with-deps",
     "clean:res": "rescript clean",
     "watch:res": "rescript build -w",
     "watch:screen": "screen -c .screenrc"
@@ -62,6 +62,7 @@
     "@rescript/react": "^0.10.2",
     "@tailwindcss/forms": "^0.3.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "rescript-unicode-zawgyi-converter": "^0.0.1"
   }
 }
