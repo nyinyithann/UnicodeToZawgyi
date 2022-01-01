@@ -1,33 +1,6 @@
 let {string, useState} = module(React)
 
-let unicodeSampleText = `༺ လယ်တီဆရာတော်ဘုရားကြီးရေးသားတော်မူသော ༻
-
-  ☸ နိဗ္ဗိန္နတေးထပ် ☸
- ༺༻༺༻༺༻
-အဝိဇ္ဇာ ပိတ်ကာဆို့၊
-မိစ္ဆာမြို့ပြင်ပြင်၊
-ဣဋ္ဌာလို့ ခင်မင်လျှင်၊
-လွင့်စင်မည်မလွဲ၊
-အရွတ်စု အပုတ်ကောင်ကို၊
-အဟုတ်ယောင် မှားဖို့ ဖန်နဲ။
-
-အသုဘ ရုပ်တစ္ဆေငယ်၊
-မဟုတ်လေ ကိုယ်ထဲ၊
-အပုပ်ရေ စိုတရွှဲဟာမို့၊
-ယိုမစဲ သူ့မှာ၊
-သွေးသည်းချေ ပြည် သလိပ်တွေက၊
-တည်မဆိတ် လျှမ်းပြည့်သည်သာ၊
-
-သို့ကလောက် ရွံစရာကို၊
-လွန်တဏှာ မက်စွဲပါလို့၊
-စက်ဝဲမှာတပေပေ၊
-မွန်းကြပလေ၊
-တဏှာဖမ်းတဲ့ အကန်းတွေမှာ၊
-အပန်းမပြေ ဟိုက်မောရှာကြလေး။
-တဏှာပူးတဲ့ အရူးတွေမှာ
-အမူးမပြေ မိုက်မောရှာကြလေး။
-တဏှာလိုက်တဲ့ အမိုက်တွေမှာ၊
-အဟိုက်မပြေ ပင်ပန်းရှာကြလေး။`
+let unicodeSampleText = `တောင်တောရယ်သာ၊ မာလာကငုံဖူး၊ ပင်ဝါးရုံလေယူတိမ်းတယ်၊ ကျေးငှက်ကမြူး`
 
 type tabType = [#Unicode | #Zawgyi]
 
@@ -95,6 +68,7 @@ let make = () => {
   }
 
   let menu = (kind: [#mb | #lg]) => {
+    open HeadlessUI
     let cn = "flex flex-col origin-top-right absolute mt-4 w-40 p-1 bg-primary_600 rounded divide-y divide-primary_200 focus:outline-none"
     let (copyClassName, colorClassName) = switch kind {
     | #mb => (cn ++ " right-11 top-12", cn ++ " right-8 top-12")
@@ -102,54 +76,54 @@ let make = () => {
     }
     <div className="flex flex-row space-x-2 flex-1 justify-end">
       <Icons.Trash className="mobile-icon" onClick={deleteText} />
-      <HLMenu as_="div" className="relative inline-block text-left">
+      <Menu as_="div" className="relative inline-block text-left">
         {({open_}) => {
           <>
-            <HLMenu.Button className="mobile-icon">
+            <Menu.Button className="mobile-icon">
               <Icons.Copy
                 onClick={e => {
                   ReactEvent.Focus.preventDefault(e)
                 }}
               />
-            </HLMenu.Button>
-            <HLMenu.Items static=open_ as_="div" className=copyClassName>
-              <HLMenu.Item>
+            </Menu.Button>
+            <Menu.Items static=open_ as_="div" className=copyClassName>
+              <Menu.Item>
                 {_ => {
                   <a href="" className="copy-menu-item" onClick={copyUnicodeText}>
                     {"Copy Unicode"->string}
                   </a>
                 }}
-              </HLMenu.Item>
-              <HLMenu.Item>
+              </Menu.Item>
+              <Menu.Item>
                 {_ => {
                   <a href="" className="copy-menu-item" onClick={copyZawgyiText}>
                     {"Copy Zawgyi"->string}
                   </a>
                 }}
-              </HLMenu.Item>
-              <HLMenu.Item>
+              </Menu.Item>
+              <Menu.Item>
                 {_ => {
                   <a href="" className="copy-menu-item" onClick={copyBothText}>
                     {"Copy Both"->string}
                   </a>
                 }}
-              </HLMenu.Item>
-            </HLMenu.Items>
+              </Menu.Item>
+            </Menu.Items>
           </>
         }}
-      </HLMenu>
-      <HLMenu as_="div" className="relative inline-block text-left">
+      </Menu>
+      <Menu as_="div" className="relative inline-block text-left">
         {({open_}) => {
           <>
-            <HLMenu.Button className="mobile-icon">
+            <Menu.Button className="mobile-icon">
               <Icons.Settings
                 onClick={e => {
                   ReactEvent.Focus.preventDefault(e)
                 }}
               />
-            </HLMenu.Button>
-            <HLMenu.Items static=open_ as_="div" className=colorClassName>
-              <HLMenu.Item>
+            </Menu.Button>
+            <Menu.Items static=open_ as_="div" className=colorClassName>
+              <Menu.Item>
                 {_ => {
                   <>
                     <div className="flex flex-col">
@@ -208,11 +182,11 @@ let make = () => {
                     </div>
                   </>
                 }}
-              </HLMenu.Item>
-            </HLMenu.Items>
+              </Menu.Item>
+            </Menu.Items>
           </>
         }}
-      </HLMenu>
+      </Menu>
     </div>
   }
 

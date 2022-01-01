@@ -7,10 +7,14 @@ var Items = {};
 
 var Item = {};
 
+var Menu = {
+  Button: Button,
+  Items: Items,
+  Item: Item
+};
+
 export {
-  Button ,
-  Items ,
-  Item ,
+  Menu ,
   
 }
 /* No side effect */

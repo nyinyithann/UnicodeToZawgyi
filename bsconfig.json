@@ -1,6 +1,6 @@
 {
-  "$schema": "https://raw.githubusercontent.com/rescript-lang/rescript-compiler/master/docs/docson/build-schema.json",
-  "name": "unicode-to-zawgyi",
+  "name": "zawgyi-to-unicode",
+  "namespace": false,
   "reason": {
     "react-jsx": 3
   },
@@ -8,16 +8,19 @@
     "dir": "src",
     "subdirs": true
   },
-  "bsc-flags": ["-bs-super-errors"],
-
+  "bsc-flags": [],
+  "warnings": { "error": "a" },
   "package-specs": [
     {
       "module": "es6",
       "in-source": true
     }
   ],
-  "suffix": ".bs.js",
-  "namespace": true,
+  "suffix": ".js",
 
-  "bs-dependencies": ["@rescript/react", "rescript-unicode-zawgyi-converter"]
+  "bs-dependencies": [
+    "@rescript/react",
+    "rescript-unicode-zawgyi-converter",
+    "rescript-heroicons"
+  ]
 }

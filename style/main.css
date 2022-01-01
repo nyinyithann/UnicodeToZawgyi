@@ -3,41 +3,48 @@
 @tailwind utilities;
 
 @import './_theme.css';
+@import './_fonts.css';
 
 body {
-	min-height: 100vh;
-	min-height: -webkit-fill-available;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
 html {
-	height: -webkit-fill-available;
+  height: -webkit-fill-available;
 }
 
 @layer components {
-	.text-area {
-		@apply p-4 bg-primary_100 flex-1
-			leading-7 rounded resize-none w-full outline-none
-			focus:ring-0 focus:ring-primary_100 focus:outline-none ;
-	}
+  .navbar-button {
+    @apply h-8 mx-1 px-2 rounded text-center transition-colors duration-200
+    text-primary_900 hover:cursor-pointer focus:outline-none
+    hover:bg-primary_600 hover:text-primary_50;
+  }
 
-	.mobile-icon {
-		@apply h-9 w-9 md:h-8 md:w-8 p-1 self-end
+  .text-area {
+    @apply p-4 bg-primary_100 flex-1
+			leading-7 rounded resize-none w-full outline-none
+			focus:ring-0 focus:ring-primary_100 focus:outline-none;
+  }
+
+  .mobile-icon {
+    @apply h-9 w-9 md:h-8 md:w-8 p-1 self-end
 			bg-primary_transparent rounded border
 			text-primary_300 focus:outline-none hover:text-primary_200 active:text-primary_400;
-	}
+  }
 
-	.copy-menu-item {
-		@apply p-1 bg-primary_transparent
+  .copy-menu-item {
+    @apply p-1 bg-primary_transparent
 			text-primary_300 pl-5 hover:text-primary_100;
-	}
+  }
 
-	.theme-btn {
-		@apply flex-1 p-1 rounded-full h-7 w-10
+  .theme-btn {
+    @apply flex-1 p-1 rounded-full h-7 w-10
 			ring-1 focus:ring-2 hover:ring-2 focus:outline-none;
-	}
+  }
 
-	.theme-menu-internal-div {
-		@apply p-2 flex flex-1 flex-row flex-wrap gap-2
+  .theme-menu-internal-div {
+    @apply p-2 flex flex-1 flex-row flex-wrap gap-2
 			justify-between;
-	}
+  }
 }
