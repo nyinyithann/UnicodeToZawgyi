@@ -34,7 +34,7 @@ function App(Props) {
               children: React.createElement("div", {
                     className: "" + match$1[0] + " flex flex-col"
                   }, React.createElement(NavBar.make, {}), React.createElement("div", {
-                        className: "py-20 bg-white h-screen p-3"
+                        className: "py-12 bg-white h-screen"
                       }, component))
             });
 }

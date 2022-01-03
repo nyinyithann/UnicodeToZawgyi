@@ -77,16 +77,14 @@ let make = () => {
           flex-auto w-8 h-8 rounded-full border-primary_transparent 
           hover:bg-primary_400 active:bg-primary_400
           active:text-primary_500 text-primary_600 focus:outline-none
-          hover:text-primary_700 dark:bg-slate-900">
-          <Heroicons.Solid.ColorSwatchIcon
-            className="self-center w-5 h-5 text-primary_900 dark:text-white"
-          />
+          hover:text-primary_700 dark:hover:bg-slate-500">
+          <ColorSwatchIcon className="self-center w-6 h-6 text-primary_700 dark:text-white" />
         </Menu.Button>
         <Menu.Items
           as_="div"
-          className="flex flex-col origin-top-right absolute mt-4
-          w-[12rem] rounded w-40 p-1 right-1 top-6 border-[1px] shadow-lg
-          border-primary_200 bg-primary_100 focus:outline-none dark:bg-slate-600
+          className="flex flex-col origin-top-right absolute mt-4 z-[100]
+          w-[12rem] rounded w-40 p-1 right-1 top-[1.2rem] border-[1px] shadow-lg
+          border-primary_200 bg-primary_200 focus:outline-none dark:bg-slate-600
           dark:border-slate-500">
           <Menu.Item>
             {_ => {

@@ -1,5 +1,5 @@
 {
-  "name": "zawgyi-to-unicode",
+  "name": "zawgyi-unicode-converter",
   "namespace": false,
   "reason": {
     "react-jsx": 3
@@ -18,9 +18,5 @@
   ],
   "suffix": ".js",
 
-  "bs-dependencies": [
-    "@rescript/react",
-    "rescript-unicode-zawgyi-converter",
-    "rescript-heroicons"
-  ]
+  "bs-dependencies": ["@rescript/react", "rescript-unicode-zawgyi-converter"]
 }

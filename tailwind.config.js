@@ -5,10 +5,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        brand: ['Pacifico'],
         navigation: ['Oswald'],
         primary: ['Merriweather'],
         secondary: ['Lato'],
+        myanmar_unicode: ['Noto Sans Myanmar'],
+        myanmar_zawgyi: ['Zawgyi-One'],
       },
       textColor: {
         primary_transparent: 'var(--color-primary-transparent)',
@@ -63,6 +64,19 @@ module.exports = {
         primary_900: 'var(--color-primary-900)',
       },
       boxShadowColor: {
+        primary_transparent: 'var(--color-primary-transparent)',
+        primary_50: 'var(--color-primary-50)',
+        primary_100: 'var(--color-primary-100)',
+        primary_200: 'var(--color-primary-200)',
+        primary_300: 'var(--color-primary-300)',
+        primary_400: 'var(--color-primary-400)',
+        primary_500: 'var(--color-primary-500)',
+        primary_600: 'var(--color-primary-600)',
+        primary_700: 'var(--color-primary-700)',
+        primary_800: 'var(--color-primary-800)',
+        primary_900: 'var(--color-primary-900)',
+      },
+      gradientColorStops: {
         primary_transparent: 'var(--color-primary-transparent)',
         primary_50: 'var(--color-primary-50)',
         primary_100: 'var(--color-primary-100)',

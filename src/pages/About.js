@@ -66,7 +66,7 @@ function About(Props) {
                             }), React.createElement("div", {
                               className: "mt-16 flex-auto font-primary text-lg"
                             }, React.createElement("span", undefined, "Credit: ", React.createElement("a", {
-                                      className: "text-primary_200 underline",
+                                      className: "text-primary_900 underline",
                                       href: "https://github.com/Rabbit-Converter/Rabbit",
                                       target: "_blank"
                                     }, "Rabbit")))))));

@@ -1,3 +1,4 @@
+/*
 let {string, useState} = module(React)
 
 let unicodeSampleText = `တောင်တောရယ်သာ၊ မာလာကငုံဖူး၊ ပင်ဝါးရုံလေယူတိမ်းတယ်၊ ကျေးငှက်ကမြူး`
@@ -259,27 +260,28 @@ let make = () => {
         />
       </div>
     </div>
-    <footer
-      className="flex flex-row justify-between px-4 2xl:px-10 bg-primary_800 text-primary_400">
-      <div className="flex-1 self-start">
-        <a
-          target="_blank"
-          className="text-primary_200 underline"
-          href="https://github.com/nyinyithann/UnicodeToZawgyi">
-          {"GitHub Repo"->string}
-        </a>
-      </div>
-      <div className="flex-1 self-end flex justify-end">
-        <span>
-          {"Credit: "->string}
-          <a
-            target="_blank"
-            className="text-primary_200 underline"
-            href="https://github.com/Rabbit-Converter/Rabbit">
-            {"Rabbit"->string}
-          </a>
-        </span>
-      </div>
-    </footer>
+    /* <footer */
+    /* className="flex flex-row justify-between px-4 2xl:px-10 bg-primary_800 text-primary_400"> */
+    /* <div className="flex-1 self-start"> */
+    /* <a */
+    /* target="_blank" */
+    /* className="text-primary_200 underline" */
+    /* href="https://github.com/nyinyithann/UnicodeToZawgyi"> */
+    /* {"GitHub Repo"->string} */
+    /* </a> */
+    /* </div> */
+    /* <div className="flex-1 self-end flex justify-end"> */
+    /* <span> */
+    /* {"Credit: "->string} */
+    /* <a */
+    /* target="_blank" */
+    /* className="text-primary_200 underline" */
+    /* href="https://github.com/Rabbit-Converter/Rabbit"> */
+    /* {"Rabbit"->string} */
+    /* </a> */
+    /* </span> */
+    /* </div> */
+    /* </footer> */
   </div>
 }
+*/

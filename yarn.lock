@@ -1175,11 +1175,6 @@
   resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.4.2.tgz#87e264f190dbebbf8dfdd900530da973dad24576"
   integrity sha512-N8tv7kLhg9qGKBkVdtg572BvKvWhmiudmeEpOCyNwzOsZHCXBtl8AazGikIfUS+vBoub20Fse3BjawXDVPPdug==
 
-"@heroicons/react@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-1.0.5.tgz#2fe4df9d33eb6ce6d5178a0f862e97b61c01e27d"
-  integrity sha512-UDMyLM2KavIu2vlWfMspapw9yii7aoLwzI2Hudx4fyoPwfKfxU8r3cL8dEBXOjcLG0/oOONZzbT14M1HoNtEcg==
-
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.2"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.9.2.tgz#68be55c737023009dfc5fe245d51181bb6476914"
@@ -6915,11 +6910,6 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
-
-rescript-heroicons@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/rescript-heroicons/-/rescript-heroicons-0.0.3.tgz#ea41f0d0e62c3c6dfae1e3ca6f2c35947175106b"
-  integrity sha512-sPiNPtVTqJqAZpgmuxCgzonb1GPgmPZzecaaziNwIAIone4wYE69I4uRrktcsbE6MSmFyxTCSnoIYPHGVLTrsw==
 
 rescript-unicode-zawgyi-converter@^0.0.1:
   version "0.0.1"

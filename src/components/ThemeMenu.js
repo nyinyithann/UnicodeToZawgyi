@@ -3,9 +3,9 @@
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
+import * as ColorSwatchIcon from "../icons/ColorSwatchIcon.js";
 import * as React$1 from "@headlessui/react";
 import * as ThemeSwitchProvider from "../providers/ThemeSwitchProvider.js";
-import * as Solid from "@heroicons/react/solid";
 
 function string(prim) {
   return prim;
@@ -149,10 +149,10 @@ function ThemeMenu(Props) {
               as_: "div",
               children: (function (param) {
                   return React.createElement(React.Fragment, undefined, React.createElement(React$1.Menu.Button, {
-                                  children: React.createElement(Solid.ColorSwatchIcon, {
-                                        className: "self-center w-5 h-5 text-primary_900 dark:text-white"
+                                  children: React.createElement(ColorSwatchIcon.make, {
+                                        className: "self-center w-6 h-6 text-primary_700 dark:text-white"
                                       }),
-                                  className: "flex flex-col items-center self-end justify-center\n          flex-auto w-8 h-8 rounded-full border-primary_transparent \n          hover:bg-primary_400 active:bg-primary_400\n          active:text-primary_500 text-primary_600 focus:outline-none\n          hover:text-primary_700 dark:bg-slate-900"
+                                  className: "flex flex-col items-center self-end justify-center\n          flex-auto w-8 h-8 rounded-full border-primary_transparent \n          hover:bg-primary_400 active:bg-primary_400\n          active:text-primary_500 text-primary_600 focus:outline-none\n          hover:text-primary_700 dark:hover:bg-slate-500"
                                 }), React.createElement(React$1.Menu.Items, {
                                   as_: "div",
                                   children: React.createElement(React$1.Menu.Item, {
@@ -175,7 +175,7 @@ function ThemeMenu(Props) {
                                                             })));
                                           })
                                       }),
-                                  className: "flex flex-col origin-top-right absolute mt-4\n          w-[12rem] rounded w-40 p-1 right-1 top-6 border-[1px] shadow-lg\n          border-primary_200 bg-primary_100 focus:outline-none dark:bg-slate-600\n          dark:border-slate-500"
+                                  className: "flex flex-col origin-top-right absolute mt-4 z-[100]\n          w-[12rem] rounded w-40 p-1 right-1 top-[1.2rem] border-[1px] shadow-lg\n          border-primary_200 bg-primary_200 focus:outline-none dark:bg-slate-600\n          dark:border-slate-500"
                                 }));
                 }),
               className: "relative flex items-center text-left"

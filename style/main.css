@@ -6,45 +6,29 @@
 @import './_fonts.css';
 
 body {
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
-}
-
-html {
-  height: -webkit-fill-available;
+  @apply bg-white sm:subpixel-antialiased md:antialiased;
 }
 
 @layer components {
-  .navbar-button {
+  .navbar-btn {
     @apply h-8 mx-1 px-2 rounded text-center transition-colors duration-200
     text-primary_900 hover:cursor-pointer focus:outline-none
     hover:bg-primary_600 hover:text-primary_50;
   }
 
-  .text-area {
-    @apply p-4 bg-primary_100 flex-1
-			leading-7 rounded resize-none w-full outline-none
-			focus:ring-0 focus:ring-primary_100 focus:outline-none;
-  }
-
-  .mobile-icon {
-    @apply h-9 w-9 md:h-8 md:w-8 p-1 self-end
-			bg-primary_transparent rounded border
-			text-primary_300 focus:outline-none hover:text-primary_200 active:text-primary_400;
+  .action-btn {
+    @apply p-1 rounded-md border-[1px] border-primary_400 bg-primary_50 focus:outline-none hover:bg-primary_200 active:bg-primary_50;
   }
 
   .copy-menu-item {
-    @apply p-1 bg-primary_transparent
-			text-primary_300 pl-5 hover:text-primary_100;
+    @apply p-1 bg-primary_transparent font-secondary text-primary_900 pl-5 pt-1 hover:text-primary_600;
   }
 
-  .theme-btn {
-    @apply flex-1 p-1 rounded-full h-7 w-10
-			ring-1 focus:ring-2 hover:ring-2 focus:outline-none;
+  .tab-btn {
+    @apply pb-[1px] px-2 rounded-md border-b-2 text-primary_900 hover:outline-none active:outline-none hover:border-primary_700 active:border-primary_700 focus:border-primary_700;
   }
 
-  .theme-menu-internal-div {
-    @apply p-2 flex flex-1 flex-row flex-wrap gap-2
-			justify-between;
+  .text-area {
+    @apply h-full p-2 resize-none outline-none rounded border-[1px] border-primary_200 focus:outline-none;
   }
 }

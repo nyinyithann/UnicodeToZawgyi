@@ -3,31 +3,22 @@ let {string} = module(React)
 @react.component
 let make = () => {
   <nav
-    className="fixed inset-x-0 z-50 flex-1 py-1 shadow bg-primary_300 md:pt-1
+    className="fixed h-12 inset-x-0 z-50 flex-1 px-2 shadow bg-primary_300 
     shadow-primary_200 dark:bg-slate-600 dark:text-white">
-    <div className="px-2">
-      <div className="flex items-center justify-between">
-        <div className="flex space-x-2 items-center">
-          <div
-            className="flex shrink-0 items-center justify-center h-8 w-8
-            rounded-full shadow-md shadow-primary_400 dark:bg-slate-400">
-            {<Logo fillColor="var(--color-primary-600)" />}
-          </div>
-          <div className="items-center hidden md:flex">
-            <span
-              className="text-lg text-center font-brand text-primary_900 drop-shadow-2xl dark:text-slate-400">
-              {"ReScript"->string}
-            </span>
-          </div>
-          <div className="flex text-lg font-black font-navigation">
-            <NavLink to="/" className="navbar-button"> <span> {"Home"->string} </span> </NavLink>
-            <NavLink to="/about" className="navbar-button">
-              <span> {"About"->string} </span>
-            </NavLink>
-          </div>
+    <div className="flex items-center justify-between">
+      <div className="flex md:space-x-2 p-2 pl-0 md:p-1 items-center justify-center">
+        <div className="hidden md:flex mr-4 items-center justify-center font-myanmar_unicode">
+          <span
+            className="flex-auto text:lg md:text-2xl pt-2 font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-sky-500 dark:text-slate_400">
+            {`မင်္ဂလာပါ`->string}
+          </span>
         </div>
-        <div className="relative flex items-center pr-1 space-x-2"> <ThemeMenu /> </div>
+        <div className="flex items-center space-x-4 text-lg font-black font-navigation">
+          <NavLink to="/" className="navbar-btn"> <span> {"Home"->string} </span> </NavLink>
+          <NavLink to="/about" className="navbar-btn"> <span> {"About"->string} </span> </NavLink>
+        </div>
       </div>
+      <div className="relative flex items-center"> <ThemeMenu /> </div>
     </div>
   </nav>
 }

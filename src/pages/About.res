@@ -56,7 +56,7 @@ let make = () => {
               {"Credit: "->string}
               <a
                 target="_blank"
-                className="text-primary_200 underline"
+                className="text-primary_900 underline"
                 href="https://github.com/Rabbit-Converter/Rabbit">
                 {"Rabbit"->string}
               </a>

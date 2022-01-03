@@ -99,7 +99,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HtmlWebpackPlugin({
-      title: 'Zawgyi To Unicode',
+      title: 'Zawgyi ⇌ Unicode Converter',
       favicon: path.resolve(__dirname, '..', './public/favicon.ico'),
       template: path.resolve(__dirname, '..', './public/index.html'),
       hash: true,
