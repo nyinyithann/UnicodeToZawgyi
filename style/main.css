@@ -29,6 +29,6 @@ body {
   }
 
   .text-area {
-    @apply h-full p-2 resize-none outline-none rounded border-[1px] border-primary_200 focus:outline-none;
+    @apply h-full p-[8px] resize-none outline-none text-base md:text-[14px] rounded border-[1px] border-primary_200 focus:outline-none;
   }
 }

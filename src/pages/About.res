@@ -52,7 +52,7 @@ let make = () => {
           />
           <AuthorLink link="https://twitter.com/JazzTuyat" title="@JazzTuyat" site="Twitter" />
           <div className="mt-16 flex-auto font-primary text-lg">
-            <span>
+            <span className="block">
               {"Credit: "->string}
               <a
                 target="_blank"
@@ -60,6 +60,9 @@ let make = () => {
                 href="https://github.com/Rabbit-Converter/Rabbit">
                 {"Rabbit"->string}
               </a>
+            </span>
+            <span className="block text-sm text-slate-400">
+              {"Thanks to the original Rabbit converter."->string}
             </span>
           </div>
         </div>

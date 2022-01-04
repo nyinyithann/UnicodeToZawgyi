@@ -65,11 +65,15 @@ function About(Props) {
                               title: "@JazzTuyat"
                             }), React.createElement("div", {
                               className: "mt-16 flex-auto font-primary text-lg"
-                            }, React.createElement("span", undefined, "Credit: ", React.createElement("a", {
+                            }, React.createElement("span", {
+                                  className: "block"
+                                }, "Credit: ", React.createElement("a", {
                                       className: "text-primary_900 underline",
                                       href: "https://github.com/Rabbit-Converter/Rabbit",
                                       target: "_blank"
-                                    }, "Rabbit")))))));
+                                    }, "Rabbit")), React.createElement("span", {
+                                  className: "block text-sm text-slate-400"
+                                }, "Thanks to the original Rabbit converter."))))));
 }
 
 var make = About;

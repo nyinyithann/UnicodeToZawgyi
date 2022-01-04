@@ -8,17 +8,17 @@ var actionBtnDefaultStyle = "action-btn dark:hover:text-slate_100 dark:hover:bg-
 
 function LayoutToggleButton(Props) {
   var className = Props.className;
-  var toggleStatus = Props.toggleStatus;
+  var toggleState = Props.toggleState;
   var onClick = Props.onClick;
   var cn = className !== undefined ? "" + actionBtnDefaultStyle + " " + className : actionBtnDefaultStyle;
   return React.createElement("button", {
               className: cn,
               type: "button",
               onClick: onClick
-            }, toggleStatus === /* Single */0 ? React.createElement(SingleIcon.make, {
+            }, toggleState === /* Single */0 ? React.createElement(DoubleIcon.make, {
                     className: "h-full w-full",
                     fillColor: "var(--color-primary-600)"
-                  }) : React.createElement(DoubleIcon.make, {
+                  }) : React.createElement(SingleIcon.make, {
                     className: "h-full w-full",
                     fillColor: "var(--color-primary-600)"
                   }));

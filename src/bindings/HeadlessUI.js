@@ -13,8 +13,21 @@ var Menu = {
   Item: Item
 };
 
+var Overlay = {};
+
+var Title = {};
+
+var Description = {};
+
+var Dialog = {
+  Overlay: Overlay,
+  Title: Title,
+  Description: Description
+};
+
 export {
   Menu ,
+  Dialog ,
   
 }
 /* No side effect */
